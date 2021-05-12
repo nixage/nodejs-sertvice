@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const events = require('events')
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const emitter = new events.EventEmitter();
 

@@ -11,14 +11,15 @@ app.use(cors())
 app.use(express.json())
 
 app.get('/api/slack-events', (req, res) => {
+  emitter.on('newMessage', (message) => {
+    res.write(`data: ${JSON.stringify(message)} \n\n`)
+  })
   res.writeHead(200, {
     'Connection': 'keep-alive',
     'Content-Type': 'text/event-stream',
     'Cache-Control': 'no-cache',
   })
-  emitter.on('newMessage', (message) => {
-      res.write(`data: ${JSON.stringify(message)} \n\n`)
-  })
+  res.write("");
 })
 
 app.post('/api/slack/new-message', ((req, res) => {

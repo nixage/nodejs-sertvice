@@ -35,6 +35,10 @@ app.post('/api/slack/delete-message', ((req, res) => {
   return res.json(true)
 }))
 
+app.get('/home', ((req, res) => {
+  res.send("Home work")
+}))
+
 wss.on('connection', ws => {
   ws.send(JSON.stringify({type: "connect", ok: true}));
 });

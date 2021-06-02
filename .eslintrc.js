@@ -3,8 +3,8 @@ module.exports = {
     es6: true,
     node: true,
   },
-  extends: ['prettier'],
-  plugins: ['prettier'],
+  // extends: ['prettier'],
+  // plugins: ['prettier'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -15,12 +15,12 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    'prettier/prettier': [
-      'error',
-      {
-        endOfLine: 'auto',
-      },
-    ],
+    // 'prettier/prettier': [
+    //   'error',
+    //   {
+    //     endOfLine: 'auto',
+    //   },
+    // ],
     'class-methods-use-this': 'off',
     'no-param-reassign': 'off',
     camelcase: 'off',

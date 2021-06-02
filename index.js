@@ -4,7 +4,6 @@ const dotenv = require('dotenv');
 const WebSocket = require('ws');
 const http = require('http');
 const fileUpload = require('express-fileupload');
-
 require('module-alias/register');
 
 dotenv.config();
@@ -30,8 +29,13 @@ wss.on('connection', (ws) => {
   WebSocketConf.connection(ws);
 });
 
-app.get('/home', (req, res) => {
-  res.send('Home work');
+app.get('/home', async (req, res) => {
+  // const fs = require('fs/promises');
+  // await fs.writeFile(
+  //   './app/dictionary/male-name-dictionary.json',
+  //   `{"names": ""}`
+  // );
+  res.send('ok');
 });
 
 server.listen(port, () => console.log('Server started ' + port));

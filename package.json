@@ -49,6 +49,7 @@
     "@services": "./app/services",
     "@middlewares": "./app/middlewares",
     "@dictionary": "./app/dictionary",
-    "@logs": "./app/logs"
+    "@logs": "./app/logs",
+    "@config": "./app/config"
   }
 }

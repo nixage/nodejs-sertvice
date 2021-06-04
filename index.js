@@ -17,11 +17,8 @@ app.use(express.json());
 app.use(fileUpload());
 
 /* ROUTES */
-const slackRoutes = require('@routes/slack/slack.route');
-app.use('/api/slack', slackRoutes);
-
-const filesRoutes = require('@routes/files/files.route');
-app.use('/api/files', filesRoutes);
+const initRoutes = require('@routes');
+initRoutes(app);
 
 /* WEBSOCKET CONF */
 const WebSocketConf = require('@utils/web-sockets/Websocket');
@@ -30,11 +27,6 @@ wss.on('connection', (ws) => {
 });
 
 app.get('/home', async (req, res) => {
-  // const fs = require('fs/promises');
-  // await fs.writeFile(
-  //   './app/dictionary/male-name-dictionary.json',
-  //   `{"names": ""}`
-  // );
   res.send('ok');
 });
 

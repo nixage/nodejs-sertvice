@@ -1,0 +1,30 @@
+{
+  "tools": [
+    "git",
+    "github",
+    "gitlab",
+    "bitbucket",
+
+    "postman",
+    "vscode",
+    "webstorm",
+    "sublime",
+
+    "npm",
+    "yarn",
+    "grunt",
+    "gulp",
+    "BROWSERIFY",
+    "webpack",
+
+    "adobe photoshop",
+    "photoshop",
+    "avocode",
+    "figma",
+    "gimp",
+    "Autodesk SketchBook",
+    "sketch",
+    "adobe xd",
+    "zeplin"
+  ]
+}

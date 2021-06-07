@@ -7,10 +7,11 @@ module.exports = {
     languages: ['languages'],
     courses: ['courses'],
     projects: ['projects'],
+    personalInfo: ['personal info', 'personal information'],
   },
   regexp: {
     name: `(?<![.\\-])\\b([А-ЯA-Z][а-яa-z]+[\\s\n][А-ЯA-Z][а-яa-z]+)[\\s\n\.]`,
-    nameIgnoreCase: `(?<![.\\-])\\b([А-ЯA-Z][А-ЯA-Z]+[\\s\n][А-ЯA-Z][А-ЯA-Z]+)[\\s\n\.]`,
+    nameUpperCase: `(?<![.\\-])\\b([А-ЯA-Z][А-ЯA-Z]+[\\s\n][А-ЯA-Z][А-ЯA-Z]+)[\\s\n\.]`,
     nameFlags: ``,
   },
 };

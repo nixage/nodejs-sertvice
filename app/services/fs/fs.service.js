@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 const pathToFiles = process.cwd() + process.env.FILES_PATH;
 
-const saveFile = async (file) => {
+const saveFileParse = async (file) => {
   try {
     const filePath = pathToFiles + `/${Date.now()}_${file.name}`.replace(/\s/gim, '');
     await fs.mkdir(pathToFiles, { recursive: true });
@@ -23,4 +23,4 @@ const removeFile = async (filePath) => {
   }
 };
 
-module.exports = { saveFile, removeFile };
+module.exports = { saveFileParse, removeFile };

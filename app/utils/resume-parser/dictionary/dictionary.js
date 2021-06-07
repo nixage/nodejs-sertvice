@@ -9,6 +9,8 @@ module.exports = {
     projects: ['projects'],
   },
   regexp: {
-    name: `\\b([А-ЯA-Z][\\w]+\\s+[А-ЯA-Z]\\w+)[\n.]`,
+    name: `(?<![.\\-])\\b([А-ЯA-Z][а-яa-z]+[\\s\n][А-ЯA-Z][а-яa-z]+)[\\s\n\.]`,
+    nameIgnoreCase: `(?<![.\\-])\\b([А-ЯA-Z][А-ЯA-Z]+[\\s\n][А-ЯA-Z][А-ЯA-Z]+)[\\s\n\.]`,
+    nameFlags: ``,
   },
 };

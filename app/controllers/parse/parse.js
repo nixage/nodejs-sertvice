@@ -4,7 +4,6 @@ const { resumeParserByText } = require('@utils/resume-parser');
 const parseCvByFile = async (req, res) => {
   try {
     const file = req.files.file;
-    /* {valid: boolean, filePath: '',} */
     const data = await parseByFile(file);
     return res.json({ valid: true, data });
   } catch (err) {

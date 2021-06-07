@@ -6,7 +6,10 @@ const sliceToIndex = (text, from, to) => text.slice(from, to);
 const parseName = (text) => {
   const index = findFirstIndexByTitles(text);
   const newText = index !== -1 ? sliceToIndex(text, 0, index) : text;
-  const name = new RegExp(dictionary.regexp.name).exec(newText);
+  let name = new RegExp(dictionary.regexp.name, dictionary.regexp.nameFlags).exec(`${newText}`);
+  name === null
+    ? (name = new RegExp(dictionary.regexp.nameIgnoreCase, dictionary.regexp.nameFlags).exec(`${newText}`))
+    : '';
   return name !== null ? name[1] : '';
 };
 

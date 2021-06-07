@@ -1,0 +1,3 @@
+node-modules/
+.vscode
+app/utils/resume-parser/dictionary/

@@ -1,17 +1,7 @@
 const pdfParser = require('./pdf-reader');
 const parser = require('./parser');
-const { supportMimetype } = require('./config/config');
 
-const getFileType = (path) => {
-  const fileTypeRe = /.(\w+)$/.exec(path);
-
-  if (fileTypeRe !== null) {
-    const mimetype = supportMimetype.find((type) => type === fileTypeRe[1]);
-    if (!mimetype) throw Error('File type not supported');
-    return mimetype;
-  }
-  throw Error('File type not supported');
-};
+const getFileType = (path) => /.(\w+)$/.exec(path)[1];
 
 const parseCvText = (text) => {
   const name = parser.nameParser(text);

@@ -19,9 +19,9 @@ const parseCvText = (text) => {
     name: name,
     firstName: name.split(/\s/)[1],
     lastName: name.split(/\s/)[0],
-    email: parser.emailParser(text),
-    phone: parser.phoneParser(text),
-    skills: parser.skillsParser(text),
+    email1: parser.emailParser(text),
+    phoneCell: parser.phoneParser(text),
+    keySkills: parser.skillsParser(text),
   };
 };
 

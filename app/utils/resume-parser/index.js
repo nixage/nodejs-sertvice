@@ -1,4 +1,5 @@
 const pdfParser = require('./pdf-reader');
+const docParser = require('./docx-parser');
 const parser = require('./parser');
 
 const getFileType = (path) => /.(\w+)$/.exec(path)[1];
@@ -21,6 +22,9 @@ const resumeParserByFile = async (pathToFile) => {
   switch (fileType) {
     case 'pdf':
       text = await pdfParser(pathToFile);
+      break;
+    case 'docx':
+      text = await docParser(pathToFile);
       break;
   }
   return parseCvText(text);

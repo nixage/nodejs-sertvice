@@ -1,5 +1,7 @@
-const findByParams = require('./find-by-params');
+const findFirstIndexPersonalInfo = require('./find-first-index-personal-info');
+const findLastIndexPersonalInfo = require('./find-last-index-personal-info');
 
 module.exports = {
-  findByParams,
+  findFirstIndexPersonalInfo,
+  findLastIndexPersonalInfo,
 };

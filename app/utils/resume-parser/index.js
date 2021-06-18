@@ -1,6 +1,6 @@
 const pdfParser = require('./reader/pdf-reader');
 const docParser = require('./reader/docx-reader');
-const parser = require('./parser');
+const parser = require('./parsers');
 
 const getFileType = (path) => /.(\w+)$/.exec(path)[1];
 

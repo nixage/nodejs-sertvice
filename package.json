@@ -51,6 +51,7 @@
     "@middlewares": "./app/middlewares",
     "@dictionary": "./app/dictionary",
     "@logs": "./app/logs",
-    "@config": "./app/config"
+    "@config": "./app/config",
+    "@resume-parser": "./app/utils/resume-parser"
   }
 }

@@ -1,6 +1,6 @@
-const pdfParser = require('./pdf-reader');
-const docParser = require('./docx-parser');
-const parser = require('./parser');
+const pdfParser = require('./reader/pdf-reader');
+const docParser = require('./reader/docx-reader');
+const parser = require('./parsers');
 
 const getFileType = (path) => /.(\w+)$/.exec(path)[1];
 
@@ -13,6 +13,7 @@ const parseCvText = (text) => {
     email1: parser.emailParser(text),
     phoneCell: parser.phoneParser(text),
     keySkills: parser.skillsParser(text),
+    experience: parser.experienceParser(text),
   };
 };
 

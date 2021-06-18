@@ -22,9 +22,9 @@ const mapExperienceByPeriod = (period, text, index, periods) => {
 
 module.exports = (text = '') => {
   const fromIndexExperienceBlock = findFirstIndexExperienceInfo(text);
-  let experienceBlock = text.slice(fromIndexExperienceBlock === -1 ? 0 : fromIndexExperienceBlock, -1);
+  const experienceBlock = text.slice(fromIndexExperienceBlock === -1 ? 0 : fromIndexExperienceBlock, -1);
   const periods = periodParser(experienceBlock);
   return periods
     .map((val, index, arr) => mapExperienceByPeriod(val, text, index, arr))
-    .filter((val) => val.company.length && val.position.length && val.notes.length);
+    .filter((val) => val.company.length && val.position.length);
 };

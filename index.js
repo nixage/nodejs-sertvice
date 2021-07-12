@@ -23,7 +23,7 @@ initRoutes(app);
 /* WEBSOCKET CONF */
 const WebSocketConf = require('@utils/web-sockets/Websocket');
 wss.on('connection', (ws) => {
-  WebSocketConf.connection(ws);
+  WebSocketConf.connection(ws, wss);
 });
 
 app.get('/home', async (req, res) => {

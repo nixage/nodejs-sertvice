@@ -1,5 +1,5 @@
 // Helpers
-const { findFirstIndexExperienceInfo, getLineBySubString } = require('./helpers');
+const { findFirstIndexExperienceInfo, findLastIndexExperienceInfo, getLineBySubString } = require('./helpers');
 
 const companyParser = require('./experience-company-parser');
 const periodParser = require('./experience-period-parser');
@@ -22,7 +22,9 @@ const mapExperienceByPeriod = (period, text, index, periods) => {
 
 module.exports = (text = '') => {
   const fromIndexExperienceBlock = findFirstIndexExperienceInfo(text);
-  const experienceBlock = text.slice(fromIndexExperienceBlock === -1 ? 0 : fromIndexExperienceBlock, -1);
+  let experienceBlock = text.slice(fromIndexExperienceBlock === -1 ? 0 : fromIndexExperienceBlock, -1);
+  const lastIndexExperienceBlock = findLastIndexExperienceInfo(experienceBlock);
+  experienceBlock = experienceBlock.slice(0, lastIndexExperienceBlock);
   const periods = periodParser(experienceBlock);
   return periods
     .map((val, index, arr) => mapExperienceByPeriod(val, text, index, arr))

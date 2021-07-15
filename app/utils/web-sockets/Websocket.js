@@ -1,16 +1,19 @@
 class WebSocket {
   rooms = [];
+  websocket = null;
+  websocketServer = null;
 
-  connection(ws) {
-    ws.on('message', (data) => {
+  connection(websocket, websocketServer) {
+    this.websocketServer = websocketServer;
+    websocket.on('message', (data) => {
       data = JSON.parse(data);
       switch (data.event) {
         case 'subscribe':
-          this.subscribeUser(data.userId, data.channelId, ws);
+          this.subscribeUser(data.userId, data.channelId, websocket);
           break;
       }
     });
-    ws.send(JSON.stringify({ type: 'connect', ok: true }));
+    websocket.send(JSON.stringify({ type: 'connect', ok: true }));
   }
 
   subscribeUser(userId, channelId, ws) {
@@ -28,12 +31,21 @@ class WebSocket {
   errorSubscribeUser(ws) {
     ws.send(JSON.stringify({ type: 'subscribe', ok: false }));
   }
-  sendMessage(channelId, event, message) {
+  sendMessageToChannel(channelId, event, message) {
     this.rooms.forEach((sub) => {
       if (channelId === sub.channelId) {
-        sub.client.send(JSON.stringify({ event: event, data: message }));
+        this._send(sub.client, event, message);
       }
     });
+  }
+  sendMessageClients(event, message) {
+    this.websocketServer.clients.forEach((client) => {
+      this._send(client, event, message);
+    });
+  }
+
+  _send(ws, event, data) {
+    ws.send(JSON.stringify({ event, data }));
   }
 }
 
